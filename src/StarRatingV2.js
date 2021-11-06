@@ -9,7 +9,7 @@ const Star = ({ selected = false, onSelect = f => f }) => (
                         onClick={onSelect}
                     />);
 
-const StarRatingV2 = ({ totalStars = 5, selectedStars = 1}) => {
+const StarRatingV2 = ({ totalStars = 5, selectedStars = 1, onRate = f => f}) => {
 
     return (
         <>
@@ -18,6 +18,7 @@ const StarRatingV2 = ({ totalStars = 5, selectedStars = 1}) => {
                     <Star 
                         key={i} 
                         selected={selectedStars > i} 
+                        onSelect={ () => onRate(i+1) }
                     />)  
                 )}
             </div>

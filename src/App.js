@@ -15,7 +15,17 @@ function App() {
         <h1>Counting Stars</h1>
       </header>
       
-        <ColorList colors={colors} />
+        <ColorList 
+          colors={colors} 
+          onRemoveColor = { id => {
+            const newColors = colors.filter(c => c.id !== id);
+            setColors(newColors);
+          }} 
+          onRateColor = { (id, rating)  => {
+            const newColors = colors.map( c => c.id === id ? { ...c, rating} : c );
+            setColors(newColors);
+          }} 
+        />
       
 
 
